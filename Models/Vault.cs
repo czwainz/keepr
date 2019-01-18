@@ -12,8 +12,7 @@ namespace Keepr.Models
     [Required]
     public string Name { get; set; }
     public string Description { get; set; }
-    [Required]
-    public int IsPrivate { get; set; }
+
   }
 
   //Vault Class
@@ -25,8 +24,6 @@ namespace Keepr.Models
     [Required]
     public string Name { get; set; }
     public string Description { get; set; }
-    [Required]
-    public int IsPrivate { get; set; }
   }
   //VaultKeep Class
   public class VaultKeep

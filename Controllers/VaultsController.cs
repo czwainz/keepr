@@ -22,6 +22,16 @@ namespace Keepr.Controllers
       _repo = vaultRepo;
     }
 
+    [Authorize]
+    [HttpGet]
+    public ActionResult<IEnumerable<Vault>> GetVaults()
+    {
+      var id = HttpContext.User.Identity.Name;
+      IEnumerable<Vault> result = _repo.GetVaultsByUserId(id);
+      return Ok(result);
+
+    }
+
     //addVault
     [Authorize]
     // [HttpGet("Authenticate")]
@@ -34,6 +44,18 @@ namespace Keepr.Controllers
 
     }
 
+    //delete vault
+    [Authorize]
+    [HttpDelete("{vaultId}")]
+    public ActionResult<string> DeleteVault(int vaultId)
+    {
+      var id = HttpContext.User.Identity.Name;
+      if (_repo.DeleteVault(vaultId, id))
+      {
+        return Ok("Successfully deleted");
+      }
+      return BadRequest("Unable to delete");
+    }
 
 
 

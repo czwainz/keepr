@@ -5,6 +5,7 @@ using Dapper;
 using Keepr.Models;
 using System.Data;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Keepr.Repositories
 {
@@ -17,20 +18,26 @@ namespace Keepr.Repositories
     {
       _db = db;
     }
-    //GetVaultsByUserId
-    public IEnumerable<Vault> GetVaultsByUserId(int id)
+    //GetVaultKeepsByUserId
+    // public IEnumerable<VaultKeep> GetVaultKeepsByUserId(string id)
+    // {
+    //   return _db.Query<VaultKeep>($@"
+    //   SELECT * FROM vaultkeeps vk
+    //   INNER JOIN vaults v ON v.id = vk.vaultId
+    //   WHERE (userId = @id);
+    //   ", new { id });
+    // }
+
+    public IEnumerable<Vault> GetVaultsByUserId(string uId)
     {
-      return _db.Query<Vault>($@"
-      SELECT * FROM vaultkeeps vk
-      INNER JOIN vaults v ON v.id = vk.vaultId
-      WHERE (userId = @id);
-      ", new { id });
+      return _db.Query<Vault>($@"SELECT * FROM vaults WHERE userId = @uId", new { uId });
     }
+
     //AddVaults
     public Vault AddVault(Vault newVault)
     {
-      int id = _db.ExecuteScalar<int>(@"INSERT INTO Vaults (name, description, isPrivate)
-      VALUES (@Name, @Description, @IsPrivate);
+      int id = _db.ExecuteScalar<int>(@"INSERT INTO Vaults (name, description, userId)
+      VALUES (@Name, @Description, @UserId);
       SELECT LAST_INSERT_ID();", newVault);
       if (id == 0)
       {
@@ -40,7 +47,12 @@ namespace Keepr.Repositories
       return newVault;
     }
 
-
+    public bool DeleteVault(int vaultId, string userId)
+    {
+      int success = _db.Execute(@"DELETE FROM Vaults WHERE id = @vaultId AND @userId", new { vaultId, userId });
+      if (success != 1) return false;
+      return true;
+    }
 
   }
 }
