@@ -73,14 +73,14 @@ This happens because of a change to the **www/config/index.js** changing the bui
 ### Some inspirational mocks
 
 <div style="text-align:center">
-	<img src="keepr-example.jpg" style="width: 80%">
+	<img src="Keepr-example.jpg" style="width: 80%">
 	<hr/>
-	<img src="keepr-signin.jpg" style="width: 80%">
+	<img src="Keepr-signin.jpg" style="width: 80%">
 	<hr/>
-	<img src="keepr-keep-dashboard.jpg" style="width: 80%">
+	<img src="Keepr-keep-dashboard.jpg" style="width: 80%">
 	<hr/
 	>
-	<img src="keepr-vault-dashboard.jpg" style="width: 80%">
+	<img src="Keepr-vault-dashboard.jpg" style="width: 80%">
 </div>
 
 ### Good Luck and Have Fun! 

@@ -12,6 +12,7 @@
 --     name VARCHAR(20) NOT NULL,
 --     description VARCHAR(255) NOT NULL,
 --     userId VARCHAR(255),
+--     isPrivate TINYINT,
 --     INDEX userId (userId),
 --     FOREIGN KEY (userId)
 --         REFERENCES users(id)
@@ -57,7 +58,8 @@
 --     FOREIGN KEY (keepId)
 --         REFERENCES keeps(id)
 --         ON DELETE CASCADE
--- )
+-- );
+
 
 
 -- -- USE THIS LINE FOR GET KEEPS BY VAULTID
