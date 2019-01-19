@@ -6,7 +6,7 @@ using Keepr.Models;
 using System.Data;
 using Microsoft.AspNetCore.Http;
 
-namespace Keepr.Repository
+namespace Keepr.Repositories
 {
 
   public class KeepRepository
@@ -26,21 +26,27 @@ namespace Keepr.Repository
     //   WHERE (userId = @id);
     //   ", new { id });
     // }
-    //AddVaults
-    public Vault AddVault(Vault newVault)
+    //AddKeeps
+    public Keep AddKeep(Keep newKeep)
     {
-      int id = _db.ExecuteScalar<int>(@"INSERT INTO Vaults (name, description, isPrivate)
-      VALUES (@Name, @Description, @IsPrivate);
-      SELECT LAST_INSERT_ID();", newVault);
+      int id = _db.ExecuteScalar<int>(@"INSERT INTO Keeps (name, description, userId, isPrivate, img, views, shares, keeps)
+      VALUES (@Name, @Description, @UserId, @IsPrivate, @Img, @Views, @Shares, @Keeps);
+      SELECT LAST_INSERT_ID();", newKeep);
       if (id == 0)
       {
         return null;
       }
-      newVault.Id = id;
-      return newVault;
+      newKeep.Id = id;
+      return newKeep;
     }
 
-
+    //DeleteKeeps
+    public bool DeleteKeep(int keepId, string userId)
+    {
+      int success = _db.ExecuteScalar<int>(@"DELETE FROM Keeps WHERE id = @keepId AND userId = @userId", new { keepId, userId });
+      if (success != 1) return false;
+      return true;
+    }
 
   }
 }

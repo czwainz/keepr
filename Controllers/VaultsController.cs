@@ -15,7 +15,6 @@ namespace Keepr.Controllers
 
   public class VaultsController : ControllerBase
   {
-    private readonly UserRepository _userRepo;
     private readonly VaultRepository _repo;
     public VaultsController(VaultRepository vaultRepo)
     {
