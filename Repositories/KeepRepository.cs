@@ -40,9 +40,35 @@ namespace Keepr.Repositories
     //DeleteKeeps
     public bool DeleteKeep(int keepId, string userId)
     {
-      int success = _db.ExecuteScalar<int>(@"DELETE FROM Keeps WHERE id = @keepId AND userId = @userId", new { keepId, userId });
-      if (success != 1) return false;
-      return true;
+      int success = _db.Execute(@"DELETE FROM Keeps WHERE id = @keepId AND userId = @userId", new { keepId, userId });
+      return success != 0;
+    }
+
+    //EditKeeps
+    public Keep EditKeep(int id, Keep newKeep)
+    {
+      try
+      {
+        return _db.QueryFirstOrDefault<Keep>($@"
+        UPDATE keeps SET
+        Id = @Id,
+        UserId = @UserId,
+        Name = @Name,
+        Description = @Description,
+        Img = @Img,
+        IsPrivate = @IsPrivate,
+        Views = @Views,
+        Shares = @Shares,
+        Keeps = @Keeps
+        WHERE id = @Id;
+        SELECT * FROM keeps WHERE id = @Id;
+        ", newKeep);
+      }
+      catch (Exception ex)
+      {
+        Console.WriteLine(ex);
+        return null;
+      }
     }
 
   }
