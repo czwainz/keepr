@@ -21,19 +21,15 @@ namespace Keepr.Controllers
       _repo = vkRepo;
     }
 
-    //GetVaultKeepByVaultId
+    //GetKeepByVaultId
     [Authorize]
-    [HttpGet("{vaultId}")]
-
-    public ActionResult<IEnumerable<VaultKeep>> GetVaultKeepsByVaultId(int vaultId)
+    [HttpGet("{id}")]
+    public IEnumerable<Keep> GetKeepsByVaultId(int id)
     {
-      var uId = HttpContext.User.Identity.Name;
-      IEnumerable<VaultKeep> result = _repo.GetVaultKeepsByVaultId(vaultId);
-      if (result != null)
-      {
-        return Ok(result);
-      }
-      return BadRequest();
+      var userId = HttpContext.User.Identity.Name;
+      _repo.GetKeepsByVaultId(id, userId);
+      return new List<Keep>();
+
     }
 
     //AddVaultKeep
