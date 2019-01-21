@@ -44,12 +44,12 @@ namespace Keepr.Repositories
 
 
     //DeleteVaultKeep
-    public bool DeleteVaultKeep(int id)
-    {
-      int success = _db.Execute(@"DELETE FROM vaultkeeps WHERE id = @id", new { id });
-      return success != 0;
+    // public bool DeleteVaultKeep(int id)
+    // {
+    //   int success = _db.Execute(@"DELETE FROM vaultkeeps WHERE id = @id", new { id });
+    //   return success != 0;
 
-    }
+    // }
 
 
   }
