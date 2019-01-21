@@ -19,10 +19,10 @@ namespace Keepr.Repositories
       _db = db;
     }
 
-    // GetKeepsByVaultId  
-    public IEnumerable<Keep> GetKeepsByVaultId(int vaultId, string userId)
+    // GetVaultKeepsByVaultId  
+    public IEnumerable<VaultKeep> GetVaultKeepsByVaultId(int vaultId, string userId)
     {
-      return _db.Query<Keep>($@"
+      return _db.Query<VaultKeep>($@"
       SELECT * FROM vaultkeeps vk
     INNER JOIN keeps k ON k.id = vk.keepId
     WHERE(vaultId = @vaultId AND vk.userId = @userId)",
@@ -33,8 +33,8 @@ namespace Keepr.Repositories
     public VaultKeep AddVaultKeep(VaultKeep vk)
     {
       int id = _db.ExecuteScalar<int>(@"
-            INSERT INTO vaultkeeps(vaultId, userId)
-            VALUES(@VaultId, @UserId);
+            INSERT INTO vaultkeeps(vaultId, keepId, userId)
+            VALUES(@VaultId, @KeepId, @UserId);
             SELECT LAST_INSERT_ID();
             ", vk);
       vk.Id = id;
