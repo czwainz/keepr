@@ -20,13 +20,13 @@ namespace Keepr.Controllers
       _repo = vkRepo;
     }
 
-    //GetKeepsByVaultId
+    //GetKeepsByVaultId (id is vaultId)
     [Authorize]
     [HttpGet("{id}")]
-    public IEnumerable<Keep> Get(int id)
+    public ActionResult<IEnumerable<Keep>> Get(int id)
     {
       var userId = HttpContext.User.Identity.Name;
-      List<Keep> result = _repo.GetKeepsByVaultId(id, userId);
+      IEnumerable<Keep> result = _repo.GetKeepsByVaultId(id, userId);
       if (result != null)
       {
         return Ok(result);
@@ -35,10 +35,11 @@ namespace Keepr.Controllers
     }
 
     //AddVaultKeep
+    // [Authorize]
     [HttpPost]
     public ActionResult<VaultKeep> Post([FromBody] VaultKeep val)
     {
-      val.UserId = HttpContext.User.Identity.Name;
+      // val.UserId = HttpContext.User.Identity.Name;
       VaultKeep result = _repo.AddVaultKeep(val);
       return Created("/api/vaultkeep/" + result.Id, result);
     }
@@ -46,11 +47,21 @@ namespace Keepr.Controllers
 
 
     //DeleteVaultKeep
+    [HttpDelete]
+    public ActionResult<string> DeleteVaultKeep(int vkId, string uId)
+    {
+      var userId = HttpContext.User.Identity.Name;
+      _repo.DeleteVaultKeep(vkId, userId);
+
+      // if (_repo.DeleteKeep(keepId, id))
+      // {
+      return Ok("Successfully deleted");
+      // }
+      // return BadRequest("Unable to delete");
 
 
 
 
 
-
+    }
   }
-}
