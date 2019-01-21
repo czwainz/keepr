@@ -19,10 +19,10 @@ namespace Keepr.Repositories
       _db = db;
     }
 
-    // GetVaultKeepsByVaultId  
-    public IEnumerable<VaultKeep> GetVaultKeepsByVaultId(int vaultId, string userId)
+    // GetKeepsByVaultId  
+    public IEnumerable<Keep> GetKeepsByVaultId(int vaultId, string userId)
     {
-      return _db.Query<VaultKeep>($@"
+      return _db.Query<Keep>($@"
       SELECT * FROM vaultkeeps vk
     INNER JOIN keeps k ON k.id = vk.keepId
     WHERE(vaultId = @vaultId AND vk.userId = @userId)",

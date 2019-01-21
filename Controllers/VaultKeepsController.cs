@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Keepr.Controllers
 {
-
   [Route("api/[controller]")]
   [ApiController]
 
@@ -21,13 +20,13 @@ namespace Keepr.Controllers
       _repo = vkRepo;
     }
 
-    //GetVaultKeepByVaultId
+    //GetKeepsByVaultId
     [Authorize]
     [HttpGet("{id}")]
-    public ActionResult<IEnumerable<VaultKeep>> Get(int id)
+    public IEnumerable<Keep> Get(int id)
     {
       var userId = HttpContext.User.Identity.Name;
-      IEnumerable<VaultKeep> result = _repo.GetVaultKeepsByVaultId(id, userId);
+      List<Keep> result = _repo.GetKeepsByVaultId(id, userId);
       if (result != null)
       {
         return Ok(result);
