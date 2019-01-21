@@ -19,7 +19,7 @@ namespace Keepr.Models
   public class Vault
   {
     public int Id { get; set; }
-    [Required]
+    // [Required]
     public string UserId { get; set; }
     [Required]
     public string Name { get; set; }

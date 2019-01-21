@@ -29,10 +29,16 @@ namespace Keepr.Repositories
       return _db.Query<Keep>("SELECT * FROM keeps WHERE userId = @uId", new { uId });
     }
 
-    //AddKeeps
-    public Keep AddKeep(Keep newKeep)
+    //GetKeepsByKeepId
+    public Keep GetKeepByKeepId(int id)
     {
-      int id = _db.ExecuteScalar<int>(@"INSERT INTO Keeps (name, description, userId, isPrivate, img, views, shares, keeps)
+      return _db.QueryFirstOrDefault<Keep>("SELECT * FROM keeps WHERE id = @id", new { id });
+    }
+
+    //AddKeeps
+    public CreateKeep AddKeep(CreateKeep newKeep)
+    {
+      int id = _db.ExecuteScalar<int>($@"INSERT INTO Keeps (name, description, userId, isPrivate, img, views, shares, keeps)
       VALUES (@Name, @Description, @UserId, @IsPrivate, @Img, @Views, @Shares, @Keeps);
       SELECT LAST_INSERT_ID();", newKeep);
       if (id == 0)

@@ -39,7 +39,7 @@ namespace Keepr.Controllers
     [HttpPost]
     public ActionResult<VaultKeep> Post([FromBody] VaultKeep val)
     {
-      // val.UserId = HttpContext.User.Identity.Name;
+      val.UserId = HttpContext.User.Identity.Name;
       VaultKeep result = _repo.AddVaultKeep(val);
       return Created("/api/vaultkeep/" + result.Id, result);
     }

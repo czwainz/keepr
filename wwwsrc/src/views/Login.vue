@@ -45,6 +45,9 @@
             },
             loginUser() {
                 this.$store.dispatch("login", this.creds);
+            },
+            logoutUser() {
+                this.$store.dispatch("logout")
             }
         }
     };

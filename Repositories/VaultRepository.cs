@@ -18,23 +18,20 @@ namespace Keepr.Repositories
     {
       _db = db;
     }
-    //GetVaultKeepsByUserId
-    // public IEnumerable<VaultKeep> GetVaultKeepsByUserId(string id)
-    // {
-    //   return _db.Query<VaultKeep>($@"
-    //   SELECT * FROM vaultkeeps vk
-    //   INNER JOIN vaults v ON v.id = vk.vaultId
-    //   WHERE (userId = @id);
-    //   ", new { id });
-    // }
+    //GetVaultsByVaultId
+    public Vault GetVaultByVaultId(int id, string userId)
+    {
+      return _db.QueryFirstOrDefault<Vault>($@"SELECT * FROM vaults WHERE id = @id AND userId = @userId", new { id, userId });
+    }
 
+    //GETVAULTSBYUSERID
     public IEnumerable<Vault> GetVaultsByUserId(string uId)
     {
       return _db.Query<Vault>($@"SELECT * FROM vaults WHERE userId = @uId", new { uId });
     }
 
     //AddVaults
-    public Vault AddVault(Vault newVault)
+    public CreateVault AddVault(CreateVault newVault)
     {
       int id = _db.ExecuteScalar<int>(@"INSERT INTO Vaults (name, description, userId)
       VALUES (@Name, @Description, @UserId);
@@ -47,6 +44,7 @@ namespace Keepr.Repositories
       return newVault;
     }
 
+    //DELETE VAULT
     public bool DeleteVault(int vaultId, string userId)
     {
       int success = _db.Execute(@"DELETE FROM Vaults WHERE id = @vaultId AND userId = @userId", new { vaultId, userId });

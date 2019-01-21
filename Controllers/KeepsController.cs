@@ -21,14 +21,21 @@ namespace Keepr.Controllers
     }
 
     //GetAllPublicKeeps
-    [HttpGet("{public}")]
+    [HttpGet]
     public ActionResult<IEnumerable<Keep>> Get()
     {
       return Ok(_repo.GetAllPublicKeeps());
     }
 
+    [HttpGet("{keepId}")]
+    public ActionResult<Keep> Get(int keepId)
+    {
+      return Ok(_repo.GetKeepByKeepId(keepId));
+    }
+
+    //GetKeepsByUserID
     [Authorize]
-    [HttpGet]
+    [HttpGet("{user}")]
     public ActionResult<IEnumerable<Keep>> GetAction()
     {
       var id = HttpContext.User.Identity.Name;
@@ -39,7 +46,7 @@ namespace Keepr.Controllers
     //AddKeep
     [Authorize]
     [HttpPost]
-    public ActionResult<Keep> AddKeep(Keep keep)
+    public ActionResult<Keep> AddKeep(CreateKeep keep)
     {
       var id = HttpContext.User.Identity.Name;
       keep.UserId = id;
