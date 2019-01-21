@@ -3,13 +3,13 @@
         <form v-if="loginForm" @submit.prevent="loginUser">
             <input type="email" v-model="creds.email" placeholder="email">
             <input type="password" v-model="creds.password" placeholder="password">
-            <button type="submit">Login</button>
+            <button class="btn btn-sm btn-primary" type="submit">Login</button>
         </form>
-        <form v-else @submit.prevent="register">
-            <input type="text" v-model="newUser.username" placeholder="name">
-            <input type="email" v-model="newUser.email" placeholder="email">
-            <input type="password" v-model="newUser.password" placeholder="password">
-            <button type="submit">Create Account</button>
+        <form v-else @submit.prevent="register" class="form-row">
+            <input type="text" v-model="newUser.username" placeholder="name" class="form-control">
+            <input type="email" v-model="newUser.email" placeholder="email" class="form-control">
+            <input type="password" v-model="newUser.password" placeholder="password" class="form-control">
+            <button class="btn btn-sm btn-primary" type="submit">Create Account</button>
         </form>
         <div @click="loginForm = !loginForm">
             <p v-if="loginForm">No account Click to Register</p>

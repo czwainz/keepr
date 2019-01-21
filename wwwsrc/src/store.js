@@ -27,6 +27,7 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    //AUTH
     register({ commit, dispatch }, newUser) {
       auth.post('register', newUser)
         .then(res => {
@@ -56,6 +57,7 @@ export default new Vuex.Store({
         .catch(e => {
           console.log('Login Failed')
         })
-    }
+    },
+    //KEEPS
   }
 })
