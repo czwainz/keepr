@@ -49,9 +49,8 @@ namespace Keepr.Repositories
 
     public bool DeleteVault(int vaultId, string userId)
     {
-      int success = _db.ExecuteScalar<int>(@"DELETE FROM Vaults WHERE id = @vaultId AND @userId", new { vaultId, userId });
-      if (success != 1) return false;
-      return true;
+      int success = _db.Execute(@"DELETE FROM Vaults WHERE id = @vaultId AND userId = @userId", new { vaultId, userId });
+      return success != 0;
     }
 
   }

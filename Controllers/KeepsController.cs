@@ -21,10 +21,19 @@ namespace Keepr.Controllers
     }
 
     //GetAllPublicKeeps
-    [HttpGet]
+    [HttpGet("{public}")]
     public ActionResult<IEnumerable<Keep>> Get()
     {
       return Ok(_repo.GetAllPublicKeeps());
+    }
+
+    [Authorize]
+    [HttpGet]
+    public ActionResult<IEnumerable<Keep>> GetAction()
+    {
+      var id = HttpContext.User.Identity.Name;
+      IEnumerable<Keep> result = _repo.GetAllUserKeeps(id);
+      return Ok(result);
     }
 
     //AddKeep

@@ -23,6 +23,12 @@ namespace Keepr.Repositories
       return _db.Query<Keep>("SELECT * FROM keeps WHERE isPrivate = 0");
     }
 
+    //GetAllUsersKeeps
+    public IEnumerable<Keep> GetAllUserKeeps(string uId)
+    {
+      return _db.Query<Keep>("SELECT * FROM keeps WHERE userId = @uId", new { uId });
+    }
+
     //AddKeeps
     public Keep AddKeep(Keep newKeep)
     {
