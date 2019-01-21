@@ -17,15 +17,12 @@ namespace Keepr.Repositories
     {
       _db = db;
     }
-    //GetKeepsByUserId
-    // public IEnumerable<Keep> GetKeepsByUserId(int id)
-    // {
-    //   return _db.Query<Keep>($@"
-    //   SELECT * FROM vaultkeeps vk
-    //   INNER JOIN keeps k ON k.id = vk.keepId
-    //   WHERE (userId = @id);
-    //   ", new { id });
-    // }
+    //GetAllPublicKeeps
+    public IEnumerable<Keep> GetAllPublicKeeps()
+    {
+      return _db.Query<Keep>("SELECT * FROM keeps WHERE isPrivate = 0");
+    }
+
     //AddKeeps
     public Keep AddKeep(Keep newKeep)
     {

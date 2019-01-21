@@ -20,15 +20,11 @@ namespace Keepr.Controllers
       _repo = keepRepo;
     }
 
-    // [Authorize]
-    // [HttpGet]
-    // public ActionResult<IEnumerable<Keep>> GetKeeps()
-    // {
-    //   var id = HttpContext.User.Identity.Name;
-    //   IEnumerable<Vault> result = _repo.GetKeepsByUserId(id);
-    //   return Ok(result);
-
-    // }
+    [HttpGet]
+    public ActionResult<IEnumerable<Keep>> Get()
+    {
+      return Ok(_repo.GetAllPublicKeeps());
+    }
 
     [Authorize]
     [HttpPost]
