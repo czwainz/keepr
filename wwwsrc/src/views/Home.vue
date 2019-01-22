@@ -3,9 +3,9 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-2">
+        <!-- <div class="col-2">
           <button class=" btn btn-outline-danger" @click="logoutUser">Log Out</button>
-        </div>
+        </div> -->
         <div class="col-12">
           <h2>Welcome Home</h2>
         </div>
@@ -42,9 +42,6 @@
       }
     },
     methods: {
-      logoutUser() {
-        this.$store.dispatch("logout")
-      }
     }
   };
 </script>
