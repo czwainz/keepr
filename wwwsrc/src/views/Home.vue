@@ -16,7 +16,7 @@
               <h4>{{keeps.name}}</h4>
               <p><i class="fas fa-eye"></i>&nbsp;{{keeps.views}}&nbsp;
                 <i class="fas fa-share-square"></i>&nbsp;{{keeps.shares}}&nbsp;
-                <i class="fas fa-haykal"></i>&nbsp;{{keeps.keeps}}</p>
+                <i class="far fa-lemon"></i>&nbsp;{{keeps.keeps}}</p>
             </div>
           </div>
         </div>
