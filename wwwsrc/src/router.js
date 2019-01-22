@@ -5,7 +5,7 @@ import Home from './views/Home.vue'
 // @ts-ignore
 import Login from './views/Login.vue'
 //@ts-ignore
-import MyVaults from './views/MyVaults.vue'
+import Dashboard from './views/Dashboard.vue'
 //@ts-ignore
 import Keeps from './views/Keep.vue'
 
@@ -24,9 +24,9 @@ export default new Router({
       component: Login
     },
     {
-      path: '/vaults',
-      name: 'myVaults',
-      component: MyVaults
+      path: '/dashboard',
+      name: 'dashboard',
+      component: Dashboard
     },
     {
       path: '/keeps/:keepId',

@@ -12,6 +12,9 @@
     name: 'app',
     components: {
       navBar
+    },
+    mounted() {
+      this.$store.dispatch("getPublicKeeps")
     }
   }
 </script>
