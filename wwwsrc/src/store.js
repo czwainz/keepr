@@ -76,6 +76,13 @@ export default new Vuex.Store({
           console.log(res.data)
           commit('getKeeps', res.data)
         })
+    },
+    addView({ commit, dispatch }, payload) {
+      api.put('keeps/' + payload.id, payload)
+        .then(res => {
+          debugger
+          console.log(res.data)
+        })
     }
   }
 })
