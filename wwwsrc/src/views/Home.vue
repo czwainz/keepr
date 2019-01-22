@@ -25,7 +25,7 @@
                   <button class="btn btn-warning dropdown-toggle btn-circle btn-xl" type="button" id="dropdownMenuButton"
                     data-toggle="dropdown"><i class="far fa-lemon"></i></button>
                   <div class="dropdown-menu">
-                    <p class="dropdown-item" v-for="vault in vaults" @click="addVaultKeep(vault.id, keep)">{{vault.name}}</p>
+                    <p class="dropdown-item" v-for="vault in vaults" @click="addVaultKeep(vault.id, keeps)">{{vault.name}}</p>
                   </div>
                 </div>
               </p>
@@ -67,11 +67,10 @@
           vaultKeep: {
             vaultId: vaultId,
             keepId: keep.id,
-            userId: user.id
+            userId: this.$store.state.user.id
           }
         }
         keep.keeps++
-        debugger
         this.$store.dispatch("updateKeep", keep)
         this.$store.dispatch("addVaultKeep", payload)
       },
