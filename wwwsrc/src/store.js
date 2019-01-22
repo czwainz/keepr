@@ -104,7 +104,6 @@ export default new Vuex.Store({
         })
     },
     createKeep({ commit, dispatch }, newKeep) {
-      debugger
       api.post('keeps/', newKeep)
         .then(res => {
           console.log(res.data)
@@ -113,9 +112,17 @@ export default new Vuex.Store({
     },
     //VAULTS
     //gets a users vaults
-    getVaults({ commit, dispatch }, ) {
+    getVaults({ commit, dispatch }) {
       api.get('vaults/')
         .then(res => {
+          console.log(res.data)
+          commit("getVaults", res.data)
+        })
+    },
+    createVault({ commit, dispatch }, vault) {
+      api.post('vaults/', vault)
+        .then(res => {
+          debugger
           console.log(res.data)
           commit("getVaults", res.data)
         })
@@ -130,7 +137,6 @@ export default new Vuex.Store({
               commit("setActiveVault", vault)
             })
         })
-
     }
 
   }

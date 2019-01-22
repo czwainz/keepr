@@ -11,19 +11,30 @@
     <div class="col-12">
       <vaults></vaults>
     </div>
+
+    <div class="row" v-if="!isAddingVault">
+      <div class="col-12">
+        <button class="btn btn-primary" @click="isAddingVault = true">Add New Vault</button>
+      </div>
+    </div>
+    <div class="col-12" v-show="isAddingVault">
+      <addVault v-on:addVault="isAddingVault = false"></addVault>
+    </div>
   </div>
 </template>
 
 <script>
   import vaults from "@/components/vaults.vue"
   import addKeep from "@/components/addKeep.vue"
+  import addVault from "@/components/addVault.vue"
 
   export default {
     name: 'Dashboard',
     // mounted() {},
     data() {
       return {
-        isEditingKeep: false
+        isEditingKeep: false,
+        isAddingVault: false,
       }
     },
     computed: {
@@ -32,7 +43,8 @@
     methods: {},
     components: {
       addKeep,
-      vaults
+      vaults,
+      addVault
     }
   }
 

@@ -19,7 +19,16 @@
                   <router-link :to="{name: 'keep', params: {keepId: keeps.id}}" style="color:aliceblue;"><i class="fas fa-eye"></i></router-link>
                 </button> {{keeps.views}}
                 <button class="btn btn-info btn-circle"><i class="fas fa-share-square"></i></button> {{keeps.shares}}
-                <button class="btn btn-warning btn-circle"><i class="far fa-lemon"></i></button> {{keeps.keeps}}</p>
+                <br>
+                {{keeps.keeps}}
+                <div class="dropdown">
+                  <button class="btn btn-warning dropdown-toggle btn-circle btn-xl" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown"><i class="far fa-lemon"></i></button>
+                  <div class="dropdown-menu">
+                    <p class="dropdown-item" v-for="vault in vaults" @click="addVaultKeep(vault.id, keep)">{{vault.name}}</p>
+                  </div>
+                </div>
+              </p>
               <h4>{{keeps.name}}</h4>
             </div>
           </div>
@@ -33,13 +42,40 @@
 <script>
   export default {
     name: "home",
+    mounted() {
+      this.$store.dispatch("getVaults")
+    },
+    data() {
+      return {
 
+      }
+    },
     computed: {
       publicKeeps() {
         return this.$store.state.publicKeeps
+      },
+      vaults() {
+        return this.$store.state.vaults
+      },
+      user() {
+        return this.$store.state.user
       }
     },
     methods: {
+      addVaultKeep(vaultId, keep) {
+        let payload = {
+          vaultKeep: {
+            vaultId: vaultId,
+            keepId: keep.id,
+            userId: user.id
+          }
+        }
+        keep.keeps++
+        debugger
+        this.$store.dispatch("updateKeep", keep)
+        this.$store.dispatch("addVaultKeep", payload)
+      },
+
 
     }
   };
@@ -54,5 +90,14 @@
     text-align: center;
     font-size: 12px;
     line-height: 1.42857;
+  }
+
+  .btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
   }
 </style>
