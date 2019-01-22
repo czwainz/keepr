@@ -1,13 +1,5 @@
 <template>
   <div class="keep container-fluid">
-    <div class="row" v-if="!isEditingKeep">
-      <div class="col-12">
-        <button class="btn btn-primary" @click="isEditingKeep = true">Add New Keep</button>
-      </div>
-    </div>
-    <div v-show="isEditingKeep">
-      <addKeep v-on:addKeep="isEditingKeep = false"></addKeep>
-    </div>
     <div class="row justify-content-center">
       <div class="col-8 card text-center">
         <img :src="keep.img" class="card-img-top">
@@ -24,7 +16,7 @@
 </template>
 
 <script>
-  import addKeep from "@/components/addKeep.vue"
+
 
   export default {
     name: 'keep',
@@ -40,8 +32,8 @@
     },
     data() {
       return {
-        activeKeep: {},
-        isEditingKeep: false
+
+
       }
     },
     computed: {
@@ -52,7 +44,7 @@
     methods: {
     },
     components: {
-      addKeep
+
     }
   }
 

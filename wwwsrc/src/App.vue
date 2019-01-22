@@ -14,6 +14,7 @@
       navBar
     },
     mounted() {
+      this.$store.dispatch("authenticate");
       this.$store.dispatch("getPublicKeeps")
     }
   }
