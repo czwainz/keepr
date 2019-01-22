@@ -26,9 +26,9 @@
           <div v-if="isLoggedIn()">
             <li class=" nav-item-active">
               <a class="nav-link">
-                <router-link :to="{name: 'myVaults'}" data-toggle="collapse" data-target="#navbarSupportedContent1"
-                  aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">My
-                  Vaults</router-link>
+                <router-link :to="{name: 'dashboard'}" data-toggle="collapse" data-target="#navbarSupportedContent1"
+                  aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">User
+                  Dashboard</router-link>
               </a>
             </li>
             <li class=" nav-item-active">
