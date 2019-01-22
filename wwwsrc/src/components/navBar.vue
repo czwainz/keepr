@@ -3,7 +3,7 @@
     <nav class="navbar row d-flex">
       <!-- Link to home -->
       <div class="col-10 d-flex justify-content-start">
-        <router-link :to="{name: 'home'}"><i class="far fa-lemon"></i></router-link>
+        <router-link :to="{name: 'home'}"><i class="far fa-lemon"></i> KEEPR</router-link>
       </div>
       <!-- Collapse Button -->
       <div class="col-2 d-flex justify-content-end">
@@ -17,7 +17,7 @@
 
         <!-- Links -->
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
+          <li class="nav-item-active">
             <a class="nav-link">
               <router-link :to="{name: 'home'}" data-toggle="collapse" data-target="#navbarSupportedContent1"
                 aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">Home</router-link>
@@ -86,12 +86,23 @@
 </script>
 
 <style>
+  .collapse {
+    width: 10rem;
+  }
+
   .navbar-toggler.toggler-example {
     cursor: pointer;
   }
 
+  /* .nav-item-active {
+    width: 10rem;
+    justify-content: flex-end;
+  } */
+
+
   .nav-link {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    margin-right: 1rem;
   }
 </style>

@@ -31,9 +31,9 @@
     name: "home",
     mounted() {
       //blocks users not logged in
-      if (!this.$store.state.user.id) {
-        this.$router.push({ name: "login" });
-      }
+      // if (!this.$store.state.user.id) {
+      //   this.$router.push({ name: "login" });
+      // }
       this.$store.dispatch("getPublicKeeps")
     },
     computed: {
