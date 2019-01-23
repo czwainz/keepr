@@ -27,20 +27,20 @@ namespace Keepr.Controllers
       return Ok(_repo.GetAllPublicKeeps());
     }
 
-    [HttpGet("{keepId}")]
-    public ActionResult<Keep> Get(int keepId)
-    {
-      return Ok(_repo.GetKeepByKeepId(keepId));
-    }
-
     //GetKeepsByUserID
     [Authorize]
-    [HttpGet("{user}")]
+    [HttpGet("user")]
     public ActionResult<IEnumerable<Keep>> GetAction()
     {
       var id = HttpContext.User.Identity.Name;
       IEnumerable<Keep> result = _repo.GetAllUserKeeps(id);
       return Ok(result);
+    }
+
+    [HttpGet("{keepId}")]
+    public ActionResult<Keep> Get(int keepId)
+    {
+      return Ok(_repo.GetKeepByKeepId(keepId));
     }
 
     //AddKeep

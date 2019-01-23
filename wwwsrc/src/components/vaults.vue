@@ -1,5 +1,8 @@
 <template>
   <div class="vaults row justify-content-center">
+    <div class="col-12">
+      <h4>User Vaults</h4>
+    </div>
     <div class="col-5 card mx-3 my-3" v-for="vault in vaults">
       <div class="card-body">
         <router-link :to="{name: 'vault', params: {vaultId: vault.id}}">

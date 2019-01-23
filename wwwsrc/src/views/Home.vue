@@ -15,13 +15,14 @@
               <img class="card-img-top" :src="keeps.img">
             </router-link>
             <div class="card-body">
-              <p><button class="btn btn-primary btn-circle">
+              <p>
+                <button class="btn btn-primary btn-circle">
                   <router-link :to="{name: 'keep', params: {keepId: keeps.id}}" style="color:aliceblue;"><i class="fas fa-eye"></i></router-link>
                 </button> {{keeps.views}}
                 <button class="btn btn-info btn-circle"><i class="fas fa-share-square"></i></button> {{keeps.shares}}
                 <br>
-                {{keeps.keeps}}
-                <div class="dropdown">
+                {{keeps.keeps}} Keeps
+                <div class="dropdown" v-show="user.id">
                   <button class="btn btn-warning dropdown-toggle btn-circle btn-xl" type="button" id="dropdownMenuButton"
                     data-toggle="dropdown"><i class="far fa-lemon"></i></button>
                   <div class="dropdown-menu">
