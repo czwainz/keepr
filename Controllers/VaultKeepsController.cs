@@ -47,9 +47,9 @@ namespace Keepr.Controllers
 
 
     //DeleteVaultKeep
-    //ID is vaultkeepId
-    [HttpDelete("{id}")]
-    public ActionResult<string> Delete(int id)
+
+    [HttpPut]
+    public ActionResult<string> Put([FromBody] VaultKeep vk)
     {
       var userId = HttpContext.User.Identity.Name;
       // _repo.DeleteVaultKeep(id, userId);
