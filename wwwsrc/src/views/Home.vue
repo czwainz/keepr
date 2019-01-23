@@ -74,6 +74,7 @@
         keep.keeps++
         this.$store.dispatch("updateKeep", keep)
         this.$store.dispatch("addVaultKeep", payload)
+        this.$store.dispatch("getVaults")
       },
 
 

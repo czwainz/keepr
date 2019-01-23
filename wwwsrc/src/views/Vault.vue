@@ -1,6 +1,9 @@
 <template>
   <div class="vaultById">
     <div class="row justify-content-around my-1">
+      <div class="col-12 d-flex justify-content-start ml-5">
+        <router-link :to="{name: 'dashboard'}">User Dashboard</router-link>
+      </div>
       <div class="col-12">
         <h2>{{activeVault.name}}</h2>
       </div>
@@ -12,7 +15,7 @@
             Shares: {{keeps.shares}}<br>
             Keeps: {{keeps.keeps}}</p>
         </div>
-        <div class="card-footer">
+        <div class="card-footer bg-transparent">
           <button @click="deleteVaultKeep(activeVault.id, keeps.id)" class="btn btn-outline-warning btn-sm">Remove From
             Vault</button>
         </div>

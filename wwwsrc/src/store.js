@@ -117,16 +117,15 @@ export default new Vuex.Store({
     createKeep({ commit, dispatch }, newKeep) {
       api.post('keeps/', newKeep)
         .then(res => {
-          debugger
           console.log(res.data)
-          commit("getUserKeeps")
+          dispatch("getUserKeeps", res.data)
           router.push({ name: 'dashboard' })
         })
     },
     deleteKeep({ commit, dispatch }, id) {
       api.delete('keeps/' + id)
         .then(res => {
-          commit("getUserKeeps")
+          dispatch("getUserKeeps")
         })
     },
     //VAULTS
@@ -148,8 +147,7 @@ export default new Vuex.Store({
     deleteVault({ commit, dispatch }, id) {
       api.delete('vaults/' + id)
         .then(res => {
-          console.log(res)
-          debugger
+          console.log("vault delete", res)
           dispatch("getVaults")
         })
     },
@@ -177,7 +175,7 @@ export default new Vuex.Store({
     deleteVaultKeep({ commit, dispatch }, payload) {
       api.delete('vaultkeeps/' + payload.vaultId + '/' + payload.keepId)
         .then(res => {
-          console.log("vkdelete", res.data)
+          dispatch("activeVault", payload.vaultId)
         })
     }
   }

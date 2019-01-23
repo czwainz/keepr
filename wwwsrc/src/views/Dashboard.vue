@@ -1,30 +1,18 @@
 <template>
   <div class="dashboard container-fluid">
-    <div class="row my-2" v-if="!isEditingKeep">
-      <div class="col-12">
-        <button class="btn btn-primary" @click="isEditingKeep = true">Add New Keep</button>
-      </div>
-    </div>
-    <div class="col-12" v-show="isEditingKeep">
-      <addKeep v-on:addKeep="isEditingKeep = false"></addKeep>
+
+    <div class="row">
+      <addKeep></addKeep>
     </div>
 
-    <div class="row" v-if="!isAddingVault">
-      <div class="col-12">
-        <button class="btn btn-secondary" @click="isAddingVault = true">Add New Vault</button>
-      </div>
-    </div>
-    <div class="col-12" v-show="isAddingVault">
-      <addVault v-on:addVault="isAddingVault = false"></addVault>
+    <div class="row">
+      <addVault></addVault>
     </div>
 
-    <div class="col-12">
-      <vaults></vaults>
-    </div>
+    <vaults></vaults>
 
-    <div class="col-12">
-      <userKeeps></userKeeps>
-    </div>
+    <userKeeps></userKeeps>
+
 
 
   </div>
@@ -41,8 +29,6 @@
     // mounted() {},
     data() {
       return {
-        isEditingKeep: false,
-        isAddingVault: false,
       }
     },
     computed: {
@@ -50,8 +36,8 @@
     },
     methods: {},
     components: {
-      addKeep,
       vaults,
+      addKeep,
       addVault,
       userKeeps
     }
