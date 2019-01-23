@@ -6,13 +6,12 @@
         <input type="description" class="form-control my-1" v-model="newKeep.description" placeholder="Keep Description">
         <input type="img" class="form-control my-1" v-model="newKeep.img" placeholder="Image URL">
 
-
-        <!-- <input type="radio" value="private" v-model="pubpri" id="private"></input>
-            <label for="private">&nbsp; Private&emsp;</label>
-
-            <input type="radio" value="public" v-model="pubpri" id="public"></input>
-            <label for="public">&nbsp;Public </label><br> -->
-
+        <div class="form-check form-check-inline">
+          <label class="form-check-label" for="inlineCheckboxPrivate">Mark as Private &nbsp; </label>
+          <input class="form-check-input" type="checkbox" id="inlineCheckboxPurivate" value="private" v-model="newKeep.isPrivate"
+            true-value="1" false-value="0">
+        </div>
+        <br>
         <button type="submit" class="btn btn-outline-warning mt-1">Add New Keep</button>
       </div>
     </form>

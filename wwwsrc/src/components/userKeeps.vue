@@ -34,7 +34,6 @@
     },
     methods: {
       deleteKeep(id) {
-        debugger
         this.$store.dispatch("deleteKeep", id)
       }
     }
