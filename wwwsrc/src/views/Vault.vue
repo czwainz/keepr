@@ -46,7 +46,6 @@
           keepId: keepId,
           userId: this.$store.state.user.id
         }
-        debugger
         this.$store.dispatch("deleteVaultKeep", payload)
       }
     },

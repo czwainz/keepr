@@ -43,20 +43,10 @@ namespace Keepr.Repositories
     }
 
     //DeleteVaultKeep
-    public bool DeleteVaultKeep(VaultKeep vk)
+    public bool DeleteVaultKeep(int vaultId, int keepId, string userId)
     {
-      try
-      {
-        return _db.QueryFirstOrDefault<VaultKeep>($@"
-      UPDATE vaultkeeps SET 
-      keepId = @KeepId,
-      userId = @UserId", vk);
-      }
-      catch (Exception ex)
-      {
-        Console.WriteLine(ex);
-        return null;
-      }
+      int success = _db.Execute($@"DELETE FROM vaultkeeps WHERE vaultId = @vaultId AND keepId = @keepId AND userId = @userId", new { vaultId, userId, keepId });
+      return success != 0;
     }
 
 

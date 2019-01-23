@@ -48,13 +48,13 @@ namespace Keepr.Controllers
 
     //DeleteVaultKeep
 
-    [HttpPut]
-    public ActionResult<string> Put([FromBody] VaultKeep vk)
+    [HttpDelete("{vaultId}/{keepId}")]
+    public ActionResult<string> Delete(int vaultId, int keepId)
     {
       var userId = HttpContext.User.Identity.Name;
       // _repo.DeleteVaultKeep(id, userId);
 
-      if (_repo.DeleteVaultKeep(id, userId))
+      if (_repo.DeleteVaultKeep(vaultId, keepId, userId))
       {
         return Ok("Successfully deleted");
       }
