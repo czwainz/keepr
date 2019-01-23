@@ -4,7 +4,7 @@
       <h4>User Keeps</h4>
     </div>
     <div class="col-3 card mx-2 px-0 " v-for="keeps in userKeeps">
-      <div class="card-body">
+      <div class="card-body align-content-center">
         <h6>{{keeps.name}}</h6>
         <p>{{keeps.description}}</p>
       </div>
