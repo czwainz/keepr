@@ -12,6 +12,10 @@
             Shares: {{keeps.shares}}<br>
             Keeps: {{keeps.keeps}}</p>
         </div>
+        <div class="card-footer">
+          <button @click="deleteVaultKeep(activeVault.id, keeps.id)" class="btn btn-outline-warning btn-sm">Remove From
+            Vault</button>
+        </div>
       </div>
     </div>
   </div>
@@ -30,9 +34,22 @@
     computed: {
       activeVault() {
         return this.$store.state.activeVault
+      },
+      user() {
+        return this.$store.state.user
       }
     },
-    methods: {},
+    methods: {
+      deleteVaultKeep(activeVaultId, keepId) {
+        let payload = {
+          vaultId: activeVaultId,
+          keepId: keepId,
+          userId: this.$store.state.user.id
+        }
+        debugger
+        this.$store.dispatch("deleteVaultKeep", payload)
+      }
+    },
     components: {
     }
   }

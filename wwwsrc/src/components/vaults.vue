@@ -10,6 +10,9 @@
         </router-link>
         <p>{{vault.description}}</p>
       </div>
+      <div class="card-footer justify-content-center">
+        <button @click="deleteVault(vault.id)" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></button>
+      </div>
     </div>
 
   </div>
@@ -34,7 +37,11 @@
         return this.$store.state.vaults
       }
     },
-    methods: {}
+    methods: {
+      deleteVault(id) {
+        this.$store.dispatch("deleteVault", id)
+      }
+    }
   }
 
 </script>
