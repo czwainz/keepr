@@ -8,7 +8,7 @@
         <h2>{{activeVault.name}}</h2>
       </div>
       <div class="col-3 card mx-1 my-1 " v-for="keeps in activeVault.keeps">
-        <img :src="keeps.img" class="card-img-top pt-2">
+        <img :src="keeps.img" class="card-img-top pt-2 shadow rounded">
         <div class="card-body">
           <h4>{{keeps.name}}</h4>
           <p>Views:{{keeps.views}}<br>

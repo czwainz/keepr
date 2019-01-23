@@ -65,17 +65,15 @@
     },
     methods: {
       addVaultKeep(vaultId, keep) {
-        let payload = {
-          vaultKeep: {
-            vaultId: vaultId,
-            keepId: keep.id,
-            userId: this.$store.state.user.id
-          }
+        let vaultKeep = {
+          vaultId: vaultId,
+          keepId: keep.id,
+          userId: this.user.id
         }
         keep.keeps++
         this.$store.dispatch("updateKeep", keep)
-        this.$store.dispatch("addVaultKeep", payload)
-        this.$store.dispatch("getVaults")
+        this.$store.dispatch("addVaultKeep", vaultKeep)
+        // this.$store.dispatch("getVaults")
       },
 
 

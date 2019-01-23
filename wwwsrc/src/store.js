@@ -62,7 +62,7 @@ export default new Vuex.Store({
       auth.get('authenticate')
         .then(res => {
           commit('setUser', res.data)
-          router.push({ name: 'home' })
+          // router.push({ name: 'home' })
         })
         .catch(e => {
           console.log('not authenticated')
@@ -165,10 +165,10 @@ export default new Vuex.Store({
         })
     },
     addVaultKeep({ commit, dispatch }, payload) {
-      api.post('vaultkeeps/', payload.vaultKeep)
+      api.post('vaultkeeps/', payload)
         .then(res => {
-
-          commit("setVaults", res.data)
+          console.log(res.data)
+          // commit("setVaults", res.data)
         })
     },
     deleteVaultKeep({ commit, dispatch }, payload) {

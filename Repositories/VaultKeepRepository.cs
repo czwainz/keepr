@@ -33,6 +33,7 @@ namespace Keepr.Repositories
     //AddVaultKeep
     public VaultKeep AddVaultKeep(VaultKeep vk)
     {
+      //check here for dups
       int id = _db.ExecuteScalar<int>(@"
             INSERT INTO vaultkeeps(vaultId, keepId, userId)
             VALUES(@VaultId, @KeepId, @UserId);

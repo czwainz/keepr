@@ -7,7 +7,7 @@
           <h3 class="mx-2 mb-3">{{keep.name}}</h3>
           <div class="circles d-inline shadow-sm">
             <i class="fas fa-eye"></i>
-            {{keep.views}}
+            {{keep.views+1}}
           </div>
           <div class="circles d-inline shadow-sm">
             <i class=" fas fa-share-square"></i>
