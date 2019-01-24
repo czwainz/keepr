@@ -3,13 +3,10 @@
 
     <div class="container-fluid">
       <div class="row">
-        <!-- <div class="col-2">
-          <button class=" btn btn-outline-danger" @click="logoutUser">Log Out</button>
-        </div> -->
         <div class="col-12">
           <h2>Welcome Home</h2>
         </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-around">
           <div class="col-3 card mx-1 my-1 pt-1" v-for="keeps in publicKeeps">
             <router-link :to="{name: 'keep', params: {keepId: keeps.id}}">
               <img class="card-img-top shadow rounded" :src="keeps.img" height="200px" width="200px">
@@ -73,7 +70,6 @@
         keep.keeps++
         this.$store.dispatch("updateKeep", keep)
         this.$store.dispatch("addVaultKeep", vaultKeep)
-        // this.$store.dispatch("getVaults")
       },
 
 

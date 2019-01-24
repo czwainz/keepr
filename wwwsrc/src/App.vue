@@ -45,11 +45,12 @@
 
   a {
     text-decoration: none;
-    color: #42b983;
+    color: var(--info)
   }
 
   a:hover {
     text-decoration: none;
-    /* cursor: none; */
+    color:
+      /* cursor: none; */
   }
 </style>

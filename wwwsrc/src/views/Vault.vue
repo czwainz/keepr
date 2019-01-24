@@ -2,13 +2,15 @@
   <div class="vaultById">
     <div class="row justify-content-around my-1">
       <div class="col-12 d-flex justify-content-start ml-5">
-        <router-link :to="{name: 'dashboard'}">User Dashboard</router-link>
+        <small>
+          <router-link :to="{name: 'dashboard'}">User Dashboard</router-link>
+        </small>
       </div>
       <div class="col-12">
         <h2>{{activeVault.name}}</h2>
       </div>
       <div class="col-3 card mx-1 my-1 " v-for="keeps in activeVault.keeps">
-        <img :src="keeps.img" class="card-img-top pt-2 shadow rounded">
+        <img :src="keeps.img" class="card-img-top pt-2 shadow-sm rounded" height="200px" width="200px">
         <div class="card-body">
           <h4>{{keeps.name}}</h4>
           <p>Views:{{keeps.views}}<br>
