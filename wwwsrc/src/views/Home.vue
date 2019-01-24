@@ -15,7 +15,8 @@
               <p>
                 <button class="btn btn-primary btn-circle shadow">
                   <router-link :to="{name: 'keep', params: {keepId: keeps.id}}" style="color:aliceblue;"><i class="fas fa-eye"></i></router-link>
-                </button> {{keeps.views}}
+                </button>
+                {{keeps.views}}
                 <button class="btn btn-info btn-circle shadow"><i class="fas fa-share-square"></i></button>
                 {{keeps.shares}}
                 <br>
