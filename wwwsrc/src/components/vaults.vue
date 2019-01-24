@@ -1,7 +1,7 @@
 <template>
   <div class="vaults row justify-content-center">
     <div class="col-12">
-      <h4>User Vaults</h4>
+      <h4 class="dashboardHeadline">User Vaults</h4>
     </div>
     <div class="col-5 px-0 card mx-3 my-3" v-for="vault in vaults">
       <div class="card-body">
@@ -46,7 +46,8 @@
 
 </script>
 
-<style>
-
-
+<style scoped>
+  h4.dashboardHeadline {
+    font-family: 'Chango', cursive;
+  }
 </style>

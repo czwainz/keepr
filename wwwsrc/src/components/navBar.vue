@@ -52,7 +52,7 @@
           <!-- Search form -->
           <!-- <li class="pl-2 pr-2 pb-2">
             <form @submit.prevent="search">
-              <input class="form-control text-center" type="text" placeholder="Search decks" aria-label="Search"
+              <input class="form-control text-center" type="text" placeholder="Search Keeps" aria-label="Search"
                 v-model="searchWord">
             </form>
           </li> -->
