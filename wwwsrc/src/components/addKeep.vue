@@ -17,7 +17,7 @@
               true-value="1" false-value="0">
           </div>
           <br>
-          <button type="submit" @click="isAddingKeep = false" class="btn btn-outline-warning mt-1">Add New Keep</button>
+          <button type="submit" @click="isAddingKeep = false" class="btn btn-outline-primary mt-1">Add New Keep</button>
         </div>
       </form>
     </div>

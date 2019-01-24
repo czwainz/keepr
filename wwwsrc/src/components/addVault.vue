@@ -12,7 +12,7 @@
           <div class="col-12 form-group">
             <input type="name" class="form-control" v-model="newVault.name" placeholder="Vault Name">
             <input type="description" class="form-control my-1" v-model="newVault.description" placeholder="Vault Description">
-            <button type="submit" @click="isAddingVault = false" class="btn btn-primary">Add Vault</button>
+            <button type="submit" @click="isAddingVault = false" class="btn btn-outline-secondary">Add Vault</button>
           </div>
         </form>
       </div>
