@@ -45,12 +45,12 @@
 
   a {
     text-decoration: none;
-    color: var(--info)
+    color: var(--success);
   }
 
   a:hover {
     text-decoration: none;
-    color:
+    color: var(--info)
       /* cursor: none; */
   }
 </style>

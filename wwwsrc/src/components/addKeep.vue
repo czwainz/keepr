@@ -13,7 +13,7 @@
           <input type="img" class="form-control my-1" v-model="newKeep.img" placeholder="Image URL">
           <div class="form-check form-check-inline">
             <label class="form-check-label" for="inlineCheckboxPrivate">Mark as Private &nbsp; </label>
-            <input class="form-check-input" type="checkbox" id="inlineCheckboxPurivate" value="private" v-model="newKeep.isPrivate"
+            <input class="form-check-input" type="checkbox" id="inlineCheckboxPrivate" value="private" v-model="newKeep.isPrivate"
               true-value="1" false-value="0">
           </div>
           <br>

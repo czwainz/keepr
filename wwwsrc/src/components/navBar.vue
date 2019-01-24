@@ -2,18 +2,19 @@
   <div class="navBar container-fluid">
     <nav class="navbar row d-flex">
       <!-- Link to home -->
-      <div class="col-10 d-flex justify-content-start">
-        <router-link :to="{name: 'home'}"><i class="far fa-lemon"></i> KEEPR</router-link>
-      </div>
-      <!-- Collapse Button -->
+      <div class="col-10 d-flex justify-content-start display-inline">
+        <router-link :to="{name: 'home'}"><i class="far fa-lemon"></i>
+          <h6>KEEPR</h6>
+        </router-link>
+      </div> <!-- Collapse Button -->
       <div class="col-2 d-flex justify-content-end">
         <button class="navbar-toggler toggler-example mr-3" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
           aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="dark-blue-text"><i class="fas fa-bars fa-1x"></i></span>
+          <span class="dark-blue-text"><i class="fas fa-bars fa-1x" style="color: var(--success)"></i></span>
         </button>
       </div>
       <!-- Collapsible content -->
-      <div class="collapse navbar-collapse rounded shadow" id="navbarSupportedContent1">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent1">
 
         <!-- Links -->
         <ul class="navbar-nav mr-auto">
@@ -43,7 +44,8 @@
             <li class="d-flex">
               <a class="nav-link">
                 <router-link :to="{name: 'login'}" data-toggle="collapse" data-target="#navbarSupportedContent1"
-                  aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">Sign In</router-link>
+                  aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">Sign
+                  In</router-link>
               </a>
             </li>
           </div>
@@ -92,6 +94,10 @@
 
   .navbar-toggler.toggler-example {
     cursor: pointer;
+  }
+
+  .navBar {
+    background-color: rgba(245, 231, 37, 0.788);
   }
 
   /* .nav-item-active {
