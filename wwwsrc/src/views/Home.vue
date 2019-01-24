@@ -3,8 +3,9 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-12">
-          <h2>Welcome Home</h2>
+        <div class="col-12 headline">
+          <i class="far fa-lemon headline1"></i>
+          <h1>KEEPR</h1><i class="far fa-lemon headline2"></i>
         </div>
         <div class="row justify-content-around">
           <div class="col-3 card mx-1 my-1 pt-1" v-for="keeps in publicKeeps">
@@ -96,5 +97,27 @@
     border-radius: 35px;
     font-size: 24px;
     line-height: 1.33;
+  }
+
+  .headline {
+    margin-top: 1em;
+    color: var(--info);
+    /* text-shadow: 1px 1px 2px gray; */
+  }
+
+  h1 {
+    font-family: 'Chango', cursive;
+    background: -webkit-linear-gradient(#22B24C, #F5E625);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .headline1 {
+    color: var(--success);
+  }
+
+  .headline2 {
+    color: var(--warning);
+    transform: rotate(-90deg);
   }
 </style>

@@ -2,9 +2,9 @@
   <div class="navBar container-fluid">
     <nav class="navbar row d-flex">
       <!-- Link to home -->
-      <div class="col-10 d-flex justify-content-start display-inline">
-        <router-link :to="{name: 'home'}"><i class="far fa-lemon"></i>
-          <h6>KEEPR</h6>
+      <div class="col-10 d-flex justify-content-start pt-2">
+        <router-link :to="{name: 'home'}">
+          <h5><i class="far fa-lemon"></i>&nbsp;KEEPR</h5>
         </router-link>
       </div> <!-- Collapse Button -->
       <div class="col-2 d-flex justify-content-end">
