@@ -11,6 +11,9 @@
       </div>
       <div class="col-3 card mx-1 my-1 " v-for="keeps in activeVault.keeps">
         <img :src="keeps.img" class="card-img-top mt-2 shadow-sm rounded mb-0" height="200px" width="200px">
+        <div class="card-img-overlay d-flex justify-content-end align-items-baseline" v-if="keeps.isPrivate">
+          <i class="fas fa-asterisk" style="color: var(--light); text-shadow: 0px 0px 1px gray"></i>
+        </div>
         <div class="card-body">
           <h4>{{keeps.name}}</h4>
           <p>Views:{{keeps.views}}<br>

@@ -4,11 +4,11 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12 headline">
-          <i class="far fa-lemon headline1"></i>
-          <i class="far fa-lemon headline2"></i>
+          <i class="far fa-lemon fa-2x headline1"></i>
+          <i class="far fa-lemon fa-2x headline2"></i>
           <h1>KEEPR</h1>
-          <i class="far fa-lemon headline2"></i>
-          <i class="far fa-lemon headline1"></i>
+          <i class="far fa-lemon fa-2x headline2"></i>
+          <i class="far fa-lemon fa-2x  headline1"></i>
 
         </div>
         <div class="col-12">
