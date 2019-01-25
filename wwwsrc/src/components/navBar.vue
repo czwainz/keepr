@@ -97,7 +97,7 @@
   }
 
   .navBar {
-    background-color: rgba(245, 231, 37, 0.788);
+    background-color: rgba(245, 231, 37, 0.924);
   }
 
   /* .nav-item-active {

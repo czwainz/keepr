@@ -1,16 +1,16 @@
 <template>
   <div class="vaults row justify-content-center">
-    <div class="col-12">
-      <h4 class="dashboardHeadline">User Vaults</h4>
+    <div class="col-12 pt-3">
+      <h4 class="dashboardHeadline">VAULTS</h4>
     </div>
-    <div class="col-5 px-0 card mx-3 my-3" v-for="vault in vaults">
-      <div class="card-body">
+    <div class="col-5 px-0 card mx-3 my-3 bg-light border-warning" v-for="vault in vaults">
+      <div class="card-body px-0 py-0">
         <router-link :to="{name: 'vault', params: {vaultId: vault.id}}">
-          <h4>{{vault.name}}</h4>
+          <h5 class="pt-1">{{vault.name}}</h5>
         </router-link>
-        <p>{{vault.description}}</p>
+        <p class="mb-1">{{vault.description}}</p>
       </div>
-      <div class="card-footer bg-transparent justify-content-center">
+      <div class="bg-transparent d-flex justify-content-start align-items-baseline pb-1 pl-2">
         <button @click="deleteVault(vault.id)" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></button>
       </div>
     </div>
@@ -46,7 +46,7 @@
 
 </script>
 
-<style scoped>
+<style>
   h4.dashboardHeadline {
     font-family: 'Chango', cursive;
   }

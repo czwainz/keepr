@@ -1,17 +1,17 @@
 <template>
   <div class="dashboard container-fluid">
 
-    <div class="row">
-      <addKeep></addKeep>
-    </div>
+    <vaults></vaults>
 
-    <div class="row">
+    <div class="row mb-3">
       <addVault></addVault>
     </div>
 
-    <vaults></vaults>
-
     <userKeeps></userKeeps>
+
+    <div class="row">
+      <addKeep></addKeep>
+    </div>
 
 
 

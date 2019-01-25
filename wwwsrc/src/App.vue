@@ -53,4 +53,8 @@
     color: var(--info)
       /* cursor: none; */
   }
+
+  body {
+    background-color: rgba(245, 231, 37, 0.226);
+  }
 </style>

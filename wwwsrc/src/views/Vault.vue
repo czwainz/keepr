@@ -9,18 +9,18 @@
       <div class="col-12">
         <h2>{{activeVault.name}}</h2>
       </div>
-      <div class="col-3 card mx-1 my-1 " v-for="keeps in activeVault.keeps">
+      <div class="col-6 col-lg-3 card mx-1 my-1 " v-for="keeps in activeVault.keeps">
         <img :src="keeps.img" class="card-img-top mt-2 shadow-sm rounded mb-0" height="200px" width="200px">
         <div class="card-img-overlay d-flex justify-content-end align-items-baseline" v-if="keeps.isPrivate">
-          <i class="fas fa-asterisk" style="color: var(--light); text-shadow: 0px 0px 1px gray"></i>
+          <i class="fas fa-asterisk" style="color: var(--warning); text-shadow: 0px 0px 1px gray"></i>
         </div>
         <div class="card-body">
-          <h4>{{keeps.name}}</h4>
+          <h5>{{keeps.name}}</h5>
           <p>Views:{{keeps.views}}<br>
             Shares: {{keeps.shares}}<br>
             Keeps: {{keeps.keeps}}</p>
         </div>
-        <div class="card-footer bg-transparent">
+        <div class="card-footer bg-transparent px-0 py-0 justify-content-end">
           <button @click="deleteVaultKeep(activeVault.id, keeps.id)" class="btn btn-outline-warning btn-sm">Remove From
             Vault</button>
         </div>

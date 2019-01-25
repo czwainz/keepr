@@ -14,7 +14,7 @@
         <div class="col-12">
 
           <div class="row justify-content-center">
-            <div class="col-3 card border-warning bg-light shadow-sm mx-1 my-1 pt-1" v-for="keeps in publicKeeps">
+            <div class="col-3 card border-success bg-light shadow-sm mx-1 my-1 pt-1" v-for="keeps in publicKeeps">
               <router-link :to="{name: 'keep', params: {keepId: keeps.id}}">
                 <img class="card-img-top rounded" :src="keeps.img" height="200px" width="200px">
               </router-link>
