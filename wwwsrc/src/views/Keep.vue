@@ -1,8 +1,15 @@
 <template>
   <div class="keep container-fluid">
-    <div class="row justify-content-center">
-      <div class="col-8 card text-center mt-2">
-        <img :src="keep.img" class="card-img-top">
+    <div class="row justify-content-around my-1" v-show="user.id">
+      <div class="col-12 d-flex justify-content-start ml-5">
+        <small>
+          <router-link :to="{name: 'dashboard'}">User Dashboard</router-link>
+        </small>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col-8 card bg-lightGreen border-success text-center mt-2">
+        <img :src="keep.img" class="card-img-top mt-1 d-flex justify-content-center" style="height:200px" max-width="auto">
         <div class="card-body mx-2">
           <h3 class="mb-3">{{keep.name}}</h3>
           <p>{{keep.description}}</p>

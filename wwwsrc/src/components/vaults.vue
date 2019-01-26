@@ -3,7 +3,7 @@
     <div class="col-12 pt-3">
       <h4 class="dashboardHeadline">VAULTS</h4>
     </div>
-    <div class="col-5 px-0 card mx-3 my-3 bg-lightYellow border-primary" v-for="vault in vaults">
+    <div class="col-5 px-0 card mx-3 my-3 bg-lightPink border-primary" v-for="vault in vaults">
       <div class="card-body px-0 py-0">
         <router-link :to="{name: 'vault', params: {vaultId: vault.id}}">
           <h5 class="pt-1">{{vault.name}}</h5>
@@ -49,9 +49,10 @@
 <style>
   h4.dashboardHeadline {
     font-family: 'Chango', cursive;
+    color: #F5E625;
   }
 
-  .bg-lightYellow {
+  .bg-lightPink {
     background-color: rgba(235, 105, 100, 0.372);
   }
 </style>
