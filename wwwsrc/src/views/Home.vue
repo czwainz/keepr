@@ -9,41 +9,38 @@
           <h1>KEEPR</h1>
           <i class="far fa-lemon fa-2x headline2"></i>
           <i class="far fa-lemon fa-2x  headline1"></i>
-
         </div>
-        <div class="col-12">
-
-          <div class="row justify-content-center">
-            <div class="col-3 card border-success bg-light shadow-sm mx-1 my-1 pt-1" v-for="keeps in publicKeeps">
-              <router-link :to="{name: 'keep', params: {keepId: keeps.id}}">
-                <img class="card-img-top rounded" :src="keeps.img" height="200px" width="200px">
-              </router-link>
-              <div class="card-body">
-                <p>
-                  <button class="btn btn-primary btn-circle shadow">
-                    <router-link :to="{name: 'keep', params: {keepId: keeps.id}}" style="color:aliceblue;"><i class="fas fa-eye"></i></router-link>
-                  </button>
-                  {{keeps.views}}
-                  <button class="btn btn-info btn-circle shadow"><i class="fas fa-share-square"></i></button>
-                  {{keeps.shares}}
-                  <br>
-                  {{keeps.keeps}} Keeps
-                  <div class="dropdown" v-show="user.id">
-                    <button class="btn btn-warning dropdown-toggle btn-circle btn-xl shadow-lg" type="button" id="dropdownMenuButton"
-                      data-toggle="dropdown"><i class="far fa-lemon"></i></button>
-                    <div class="dropdown-menu">
-                      <p class="dropdown-item" v-for="vault in vaults" @click="addVaultKeep(vault.id, keeps)">{{vault.name}}</p>
-                    </div>
+      </div>
+      <div class="row justify-content-around">
+        <div class="card-columns justify-content-center">
+          <div class="col-8 card border-success bg-lightGreen shadow-sm pt-1" v-for="keeps in publicKeeps">
+            <router-link :to="{name: 'keep', params: {keepId: keeps.id}}">
+              <img class="card-img-top rounded" :src="keeps.img" height="200px" width="200px">
+            </router-link>
+            <div class="card-body px-0 py-0 pt-1">
+              <p>
+                <button class="btn btn-primary btn-circle shadow">
+                  <router-link :to="{name: 'keep', params: {keepId: keeps.id}}" style="color:aliceblue;"><i class="fas fa-eye"></i></router-link>
+                </button>
+                {{keeps.views}}
+                <button class="btn btn-info btn-circle shadow"><i class="fas fa-share-square"></i></button>
+                {{keeps.shares}}
+                <br>
+                {{keeps.keeps}} Keeps
+                <div class="dropdown" v-show="user.id">
+                  <button class="btn btn-warning dropdown-toggle btn-circle btn-xl shadow-lg" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown"><i class="far fa-lemon"></i></button>
+                  <div class="dropdown-menu">
+                    <p class="dropdown-item" v-for="vault in vaults" @click="addVaultKeep(vault.id, keeps)">{{vault.name}}</p>
                   </div>
-                </p>
-                <h5 class="mx-0">{{keeps.name}}</h5>
-              </div>
+                </div>
+              </p>
+              <h5 class="mx-0">{{keeps.name}}</h5>
             </div>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -119,6 +116,10 @@
 
   .headline1 {
     color: var(--success);
+  }
+
+  .bg-lightGreen {
+    background-color: rgba(34, 178, 77, 0.132);
   }
 
   h1 {

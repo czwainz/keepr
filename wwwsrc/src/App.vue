@@ -55,6 +55,6 @@
   }
 
   body {
-    background-color: rgba(245, 231, 37, 0.226);
+    background-color: rgba(245, 231, 37, 0.25);
   }
 </style>
