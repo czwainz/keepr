@@ -6,7 +6,7 @@ import router from './router'
 Vue.use(Vuex)
 
 let production = !window.location.host.includes('localhost');
-let baseUrl = production ? '//keeprz.herokuapp.com/' : '//localhost:5000/';
+let baseUrl = production ? "//keeprz.herokuapp.com/" : "//localhost:5000/";
 
 let auth = Axios.create({
   baseURL: baseUrl + 'account/',
