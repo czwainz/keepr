@@ -1,6 +1,6 @@
 <template>
     <div class="login">
-        <form v-if="loginForm" @submit.prevent="loginUser" class="form-row justify-content-center">
+        <form v-if="loginForm" @submit.prevent="loginUser" class="form-row justify-content-center py-0">
             <input type="email" v-model="creds.email" placeholder="email" class="form-control mx-1">
             <input type="password" v-model="creds.password" placeholder="password" class="form-control">
             <button class="btn btn-sm btn-primary ml-1" type="submit">Login</button>
