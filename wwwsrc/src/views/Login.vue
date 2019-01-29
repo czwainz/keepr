@@ -1,11 +1,11 @@
 <template>
     <div class="login">
-        <form v-if="loginForm" @submit.prevent="loginUser" class="form-row justify-content-center py-0">
+        <form v-if="loginForm" @submit.prevent="loginUser" class="form-row justify-content-center py-0 my-1">
             <input type="email" v-model="creds.email" placeholder="email" class="form-control mx-1">
             <input type="password" v-model="creds.password" placeholder="password" class="form-control">
             <button class="btn btn-sm btn-primary ml-1" type="submit">Login</button>
         </form>
-        <form v-else @submit.prevent="register" class="form-row justify-content-center">
+        <form v-else @submit.prevent="register" class="form-row justify-content-center my-1">
             <input type="text" v-model="newUser.username" placeholder="name" class="form-control mx-1">
             <input type="email" v-model="newUser.email" placeholder="email" class="form-control">
             <input type="password" v-model="newUser.password" placeholder="password" class="form-control mx-1">

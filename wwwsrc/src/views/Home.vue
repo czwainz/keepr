@@ -40,6 +40,11 @@
           </div>
         </div>
       </div>
+      <div class="row footer">
+        <div class="col-12">
+          <h6 style="color: var(--success);">A refreshing take on social media.</h6>
+        </div>
+      </div>
     </div>
   </div>
 </template>
